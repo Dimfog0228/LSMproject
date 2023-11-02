@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 #define MAX 30
 
 int nowin = 0;
@@ -32,13 +32,16 @@ void take() {
 
 int main() {
 	
+	srand(time(NULL));
+
 	for (int i = 1; i <= MAX; i++) {
 		give();
+
 	}
 	for (int i = MAX; i > 0; i--) {
 		take();
 	}
-	srand((unsigned int)time(NULL));
+	
 	
 	
 	
