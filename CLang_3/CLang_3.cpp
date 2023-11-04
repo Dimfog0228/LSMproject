@@ -1,31 +1,36 @@
-/// Queue
+///  Queue
 #include <iostream>
 #define MAX 10
-int   g_iQuqueArray[MAX];
-int   g_iIn = 0;
-int   g_iOut = 0;
+int   iQuqueArray[MAX];
+int   In = 0;
+int   Out = 0;
+int   count = 0;
 
 void  push(int t)
 {
     // 항상 1개의 방은 나머지가 존재한다.
-    if ((g_iIn + 1) % MAX == g_iOut)
+    if (count +1 >= MAX) //
     {
         std::cout << "Queue Overflow!\n";
         return;
     }
-    g_iQuqueArray[g_iIn] = t;
-    g_iIn = ++g_iIn % MAX;
+    iQuqueArray[In] = t;
+    In = ++In % MAX;
+    count++;
 }
+
+
 int   pop()
 {
-    if (g_iIn == g_iOut)
+    if (count == 0)
     {
         std::cout << "Stack Underflow!\n";
         return -1;
     }
-    int iData = g_iQuqueArray[g_iOut];
-    g_iOut = ++g_iOut % MAX;
+    int iData = iQuqueArray[Out];
+    Out = ++Out % MAX;
     return iData;
+    count--;
 }
 int main()
 {
