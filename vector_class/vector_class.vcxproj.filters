@@ -15,7 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CLang_4.cpp">
+    <ClInclude Include="vectorC.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="vectorC.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
