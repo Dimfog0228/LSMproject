@@ -3,25 +3,30 @@
 /// ///
 /// </summary>
 
-
-	class_Box::class_Box() {
+	template<class TMP>
+	class_Box<TMP>::class_Box() {
 		next = nullptr;
 		prev = nullptr;
 		a = 1;
 	}
-	class_Containner::class_Containner() {
+
+	template<class TMP>
+	class_Containner<TMP>::class_Containner() {
 		head = nullptr;
 		tail = nullptr;
 	};
 
-	void class_Containner::addBox() {
+	template<class TMP>
+	void class_Containner<TMP>::addBox() {
 		class_Box* newBox= new class_Box;
 		if (head == nullptr) head = newBox;
 		if (tail != nullptr) tail->next = newBox;
 		newBox->prev = tail;
 		tail = newBox;
 	}
-	void class_Containner::delBox() {
+
+	template<class TMP>
+	void class_Containner<TMP>::delBox() {
 		
 		if (tail != nullptr) {
 			if (head != tail) {

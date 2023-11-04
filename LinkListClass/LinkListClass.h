@@ -1,17 +1,19 @@
 #pragma once
 
+template<class TMP>
 class class_Box {
 public:
-	int a;
-	class_Box* next;
-	class_Box* prev;
+	TMP a;
+	class_Box<TMP>* next;
+	class_Box<TMP>* prev;
 	class_Box();
 };
 
+template<class TMP>
 class class_Containner {
 public:
-	class_Box* head;
-	class_Box* tail;
+	class_Box<TMP>* head;
+	class_Box<TMP>* tail;
 public:
 	class_Containner();
 	void addBox();

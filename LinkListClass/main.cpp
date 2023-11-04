@@ -1,9 +1,11 @@
 #include <iostream>
-#include "LinkListClass.h"
+#include "LinkListClass.cpp"
+
+//int a;
 
 int main() {
 
-	class_Containner A;
+	class_Containner<int> A;
 
 	std::cout << "EndLine";
 

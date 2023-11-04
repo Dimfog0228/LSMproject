@@ -2,61 +2,71 @@
 #include <windows.h>
 #include <iostream>
 #define MAX 3
-int   g_iQuqueArray[MAX];
-int   g_iIn;
-int   g_iOut;
-void  InitQuque()
+int   iQuqueArray[MAX];
+int   In;
+int   Out;
+int   count;
+
+void  InitQuque() //큐를 초기화시킵니다.
 {
-    g_iIn = g_iOut = 0;
-    memset(g_iQuqueArray, 0, sizeof(int) * MAX);
+    In = Out = count = 0; 
+    memset(iQuqueArray, 0, sizeof(int) * MAX); //타입의 사이즈 * 개수만큼 배열의 메모리를 설정합니다. 메모리 내에 들어갈 값은 0입니다.
 }
+
 int  push(int t)
 {
     // 항상 1개의 방은 나머지가 존재한다.
-    if ((g_iIn + 1) % MAX == g_iOut)
+    if (count +1 >= MAX)
     {
         return -1;
     }
-    g_iQuqueArray[g_iIn] = t;
-    g_iIn = ++g_iIn % MAX;
+    iQuqueArray[In] = t;
+    In = ++In % MAX;
+    count++;
     return t;
 }
 int   pop()
 {
-    if (g_iIn == g_iOut)
+    if (count == 0)
     {
         return -1;
     }
-    int iData = g_iQuqueArray[g_iOut];
-    g_iOut = ++g_iOut % MAX;
+    int iData = iQuqueArray[Out];
+    Out = ++Out % MAX;
+    count--;
     return iData;
 }
+
+
+
 int main()
 {
     InitQuque();
 
-    int iWorkCounter = 10;
-    int iWork = 0;
+    int iWorkCounter = 10; //반복할 횟수
+    int iWork = 0; //넣을지 꺼낼지 정하기 위한 변수
     srand(time(NULL));// 난수(무작위수) 발생 초기화
     while (iWorkCounter-- > 0)
     {
-        iWork = rand() % 3;
+        iWork = rand() % 3; //0~2 중 1개가 값으로 들어감
+
         if (iWork == 0 || iWork == 1) // input
         {
             std::cout << "input ->";
-            int iData = rand() % 100;// 0 ~ 99
-            int iRet = push(iData);
-            if (iRet == -1)
+            int iData = rand() % 100;// 0 ~ 99 중 임의의 값을
+            int iRet = push(iData); //함수로 이동, 배열에 넣은뒤 return값을 iRet에 넣고
+            if (iRet == -1) //push에서 오버플로우 감지하면
             {
                 std::cout << "Stack Overflow!\n";
             }
-            else
+            else //오버플로우 아니면 넣은 값 출력
             {
                 std::cout << iData << " Input in="
-                    << g_iIn << " "
-                    << " out=" << g_iOut << std::endl;
+                    << In << " "
+                    << " out=" << Out << std::endl;
             }
         }
+
         else  // output
         {
             std::cout << "output ->";
@@ -68,8 +78,8 @@ int main()
             else
             {
                 std::cout << iRet << " output in="
-                    << g_iIn << " "
-                    << " out=" << g_iOut << std::endl;
+                    << In << " "
+                    << " out=" << Out << std::endl;
             }
         }
         Sleep(1000); //  1초 마다
