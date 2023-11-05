@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4a5a5940-3a9a-48f6-9feb-45b643d52926}</ProjectGuid>
-    <RootNamespace>Queue4</RootNamespace>
+    <ProjectGuid>{74ac25c4-7df2-4d54-b3ac-b878a86e1ed4}</ProjectGuid>
+    <RootNamespace>stlList0</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>../../out</OutDir>
-    <IntDir>../../out/Queue_4</IntDir>
+    <OutDir>../../output</OutDir>
+    <IntDir>../../output/stl_List_0</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -141,11 +141,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="queue_4.cpp" />
-    <ClCompile Include="queue.cpp" />
+    <ClInclude Include="FoodTruct.h" />
+    <ClInclude Include="Tank.h" />
+    <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="queue.h" />
+    <ClCompile Include="FoodTruct.cpp" />
+    <ClCompile Include="stl_List_0.cpp" />
+    <ClCompile Include="Tank.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

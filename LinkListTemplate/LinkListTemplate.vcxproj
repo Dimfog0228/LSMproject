@@ -78,6 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>../../output</OutDir>
+    <IntDir>../../output/LinkListTemplate</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -140,7 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\LinkListClass\LinkListClass.cpp" />
-    <ClCompile Include="..\LinkListClass\main.cpp" />
+    <ClCompile Include="..\LinkListClass\LinkListTemplate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\LinkListClass\LinkListClass.h" />
