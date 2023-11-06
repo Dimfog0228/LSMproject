@@ -1,5 +1,5 @@
 #include "LinkListClass.h"
-
+#include <iostream>
 	template<class TMP>
 	class_Containner<TMP>::class_Containner() {
 		head = nullptr;
@@ -9,6 +9,7 @@
 	template<class TMP>
 	class_Containner<TMP>::~class_Containner() {
 		void delAll();
+		std::cout << "컨테이너 해제" << std::endl;
 	};
 
 	template<class TMP>
@@ -86,12 +87,23 @@
 		}
 
 		head = nullptr;
+		tail = nullptr;
 	
 	};
 
 	template<class TMP>
 
-	void class_Containner<TMP>::showFront() {};
+	void class_Containner<TMP>::showFront() {
+		for (class_Box<TMP>* Box = head; Box != nullptr; Box = Box->pNext)
+		{
+			std::cout << Box->data << std::endl;
+		}
+	};
 
 	template<class TMP>
-	void class_Containner<TMP>::showBack() {};
+	void class_Containner<TMP>::showBack() {
+		for (class_Box<TMP>* Box = tail; Box != nullptr; Box = Box->pPrev)
+		{
+			std::cout << Box->data << std::endl;
+		}
+	};
