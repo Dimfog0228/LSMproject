@@ -43,6 +43,10 @@ int main()
         iLen = strlen(buffer);//buffer 배열에 저장된 문자열의 길이를 계산
         iSendByte = send(sock, buffer, iLen, 0); //send 함수는 송신에 성공하면 송신한 바이트 수를 반환하며, 실패하면 -1을 반환
         printf("%d바이트를 전송했습니다\n", iSendByte);
+
+        char recvbuffer[256] = { 0, }; //다른 곳에서 보낸 걸 받아봄
+        int iRecvByte = recv(sock, recvbuffer, 256, 0);
+        printf("[받음]%s\n", recvbuffer);
     }
     closesocket(sock);
     // )  윈속 해제    
